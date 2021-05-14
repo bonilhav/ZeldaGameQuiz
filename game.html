@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelda Quiz</title>
+    <link rel="resetsheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <nav>
+        <button class="highscores">High Scores</button>
+    </nav>
+    <header class="intro">
+        <h1>Welcome to the Zelda Quiz Game!!</h1>
+    </header>
+    <div class="start_btn"><button>Start Button</button></div>
+    <div class="quiz_box">
+        <header>
+            <div class="title">Quiz</div>
+            <div class="timer">
+                <div class="time_text">Time Left</div>
+                <div class="timer_sec"></div>
+            </div>
+        </header>
+        <section>
+            <div class="que_text">
+                <span>Question?</span>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <span>answer1</span>
+                </div>
+                <div class="option">
+                    <span>answer2</span>
+                </div>
+                <div class="option">
+                    <span>answer3</span>
+                </div>
+                <div class="option">
+                    <span>answer4</span>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <button class="next_btn">Next Question</button>
+        </footer>
+    </div>
+    <div class="result_box">
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span> your score is <p>60</p> seeconds</span>
+        </div>
+        <div class="submission">
+            <label>Name:</label>
+            <input name="name" id="score_input"/>
+            <button class="highscore_btn">Submit High Score</button>
+        </div>
+    </div>
+    <div class="highScore_box">
+        <div class="high_score">High Scores!</div>
+        <ul id="top_high_scores">
+            <li class="names" id="Player1">
+                <span></span>
+            </li>
+            <li class="names" id="Player2">
+                <span></span>
+            </li>
+            <li class="names" id="Player3">
+                <span></span>
+            </li>
+            <li class="names" id="Player4">
+                <span></span>
+            </li>
+        </ul>
+        <div>
+            <button class="replay">Replay Quiz</button>
+        </div>
+    </div>
+
+    <script src="assets/questions.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>

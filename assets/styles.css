@@ -1,0 +1,288 @@
+:root {
+    --wtsmoke: whitesmoke;
+    --dkblue: midnightblue;
+    --gldyellow:  rgb(246, 212, 59);
+    background-image: url("https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2019/07/02/915766ad/top-zelda-games-of-all-time.jpg");
+    background-size: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Itim', cursive, sans-serif;
+}
+
+.start_btn,
+.quiz_box,
+.result_box,
+.highScore_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.quiz_box.activeQuiz,
+.result_box.activeResult,
+.highScore_box.activeScore {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color:var(--gldyellow);
+    padding: 1% 2%;
+}
+
+.intro {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color:var(--gldyellow);
+    color: var(--dkblue);
+    font-size: 15px;
+}
+
+.start_btn button,
+.highscores {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--dkblue);
+    background: var(--wtsmoke);
+    border: none;
+    padding: 15px 30px;
+    outline: none;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.start_btn button:hover,
+.highscores:hover {
+    background-color: var(--dkblue);
+    color: var(--wtsmoke);
+    cursor: pointer;
+    transition: transform 150ms;
+    transform: scale(1.2);
+}
+
+.quiz_box {
+    width: 550px;
+    background: var(--wtsmoke);
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.quiz_box header {
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 20px;
+    background: var(--gldyellow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px 8px 0 0;
+}
+
+.quiz_box header .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.quiz_box header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: rgb(38, 88, 163);
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+.quiz_box header .timer .time_text{
+    font-weight: 400;
+    font-size: 17px;
+    user-select: none;
+    color: var(--wtsmoke);
+    padding: 0 2px;
+}
+
+.quiz_box header .timer .timer_sec{
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--gldyellow);
+    height: 30px;
+    width: 45px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 8px;
+    user-select: none;
+}
+
+.quiz_box section {
+    padding: 25px 30ox 20px 30px;
+    background: rgb(78, 175, 107);
+}
+
+.quiz_box section .que_text{
+    padding: 8px 10px 0 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.quiz_box section .option_list{
+    padding: 20px 10px;
+    display: block;
+}
+
+section .option_list .option{
+    background: var(--gldyellow);
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option_list .option.correct{
+    background: green;
+    color: #fff;
+    border: none;
+}
+
+.option_list .option.incorrect{
+    background: red;
+    color: #fff;
+    border: none;
+}
+
+.option_list .option.disable{
+    pointer-events: none;
+}
+
+section .option_list .option:hover{
+    color: var(--wtsmoke);
+    background: rgb(38, 88, 163);
+}
+
+.option_list .option:last-child{
+    margin-bottom: 0px;
+}
+
+.quiz_box footer{
+    height: 60px;
+    padding: 0 20px;
+    background: var(--gldyellow);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.next_btn,
+.replay {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--dkblue);
+    background: var(--wtsmoke);
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.replay {
+    margin: 10px 0 0 0;
+}
+
+.next_btn:hover,
+.replay:hover {
+    background-color: var(--dkblue);
+    color: var(--wtsmoke);
+    cursor: pointer;
+    transition: transform 150ms;
+    transform: scale(1.2);
+}
+
+footer .next_btn {
+    display: none;
+}
+
+.result_box {
+    width: 550px;
+    background: var(--gldyellow);
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 8px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.highScore_box {
+    width: 550px;
+    background: var(--gldyellow);
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 8px;
+    padding: 25px 30px;
+    border-radius: 8px;
+}
+
+.result_box .complete_text{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.result_box .score_text span{
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.result_box .score_text span p{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.result_box .submission {
+    margin: 15px;
+}
+
+.high_score {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#top_high_scores{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.highScore_box div {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
