@@ -102,7 +102,6 @@ function startTimer(){
         time--;
         if(time < 0 || que_count >= questions.length -1){
             clearInterval(counter);
-            showResultBox();
             console.log("Your time is up")
         }
     }
@@ -110,9 +109,36 @@ function startTimer(){
 
 highScore_btn.onclick = ()=>{
     results_box.classList.remove("activeResult");
+    scoreDisplay();
     score_box.classList.add("activeScore");
 }
 
+function scoreDisplay(){
+    let scoreInput = document.querySelector("#score_input").value;
+    const scoresFromLocalStorage = JSON.parse(window.localStorage.getItem("newUserScore")) || [];
+    let newUserScore = {
+        newScore: time,
+        playerName: scoreInput,
+    };
 
+    scoresFromLocalStorage.push(newUserScore)
+    window.localStorage.setItem("newUserScore", JSON.stringify(scoresFromLocalStorage));
+    
+    listHighScores()
+}
 
-//start at minute 57 https://www.youtube.com/watch?v=WUBhpSRS_fk
+function listHighScores(){
+    const localStorage = JSON.parse(window.localStorage.getItem("newUserScore")) || [];
+    
+    localStorage.sort(function(a, b){
+        return b.score - a.score
+    });
+    localStorage.forEach (score =>{
+        const listItem = document.createElement ("li");
+        listItem.textContent = score.playerName + ": " + score.newScore;
+        const topHighScores = document.querySelector("#top_high_scores");
+
+        topHighScores.appendChild(listItem);
+    });
+}
+
