@@ -8,6 +8,7 @@ const option_list = document.querySelector(".option_list");
 
 start_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); //show the quiz box
+    timeCount.textContent = time;
     startTimer();
     next_btn.click();
 };
@@ -37,6 +38,7 @@ next_btn.onclick = ()=>{
 };
 
 high_score.onclick = ()=>{
+    scoreDisplay();
     score_box.classList.add("activeScore");
 };
 
@@ -102,10 +104,12 @@ function startTimer(){
         time--;
         if(time < 0 || que_count >= questions.length -1){
             clearInterval(counter);
+            showResultBox();
             console.log("Your time is up")
         }
     }
 };
+
 
 highScore_btn.onclick = ()=>{
     results_box.classList.remove("activeResult");
@@ -113,27 +117,27 @@ highScore_btn.onclick = ()=>{
     score_box.classList.add("activeScore");
 }
 
+const scoresFromLocalStorage = JSON.parse(window.localStorage.getItem("newUserScore")) || [];
+
 function scoreDisplay(){
     let scoreInput = document.querySelector("#score_input").value;
-    const scoresFromLocalStorage = JSON.parse(window.localStorage.getItem("newUserScore")) || [];
     let newUserScore = {
         newScore: time,
         playerName: scoreInput,
     };
 
-    scoresFromLocalStorage.push(newUserScore)
+    if(newUserScore.newScore !=30){
+        scoresFromLocalStorage.push(newUserScore)};
+    scoresFromLocalStorage.sort(function(a, b){
+        return b.newScore - a.newScore
+    });
     window.localStorage.setItem("newUserScore", JSON.stringify(scoresFromLocalStorage));
     
     listHighScores()
 }
 
-function listHighScores(){
-    const localStorage = JSON.parse(window.localStorage.getItem("newUserScore")) || [];
-    
-    localStorage.sort(function(a, b){
-        return b.score - a.score
-    });
-    localStorage.forEach (score =>{
+function listHighScores(){    
+    scoresFromLocalStorage.forEach (score =>{
         const listItem = document.createElement ("li");
         listItem.textContent = score.playerName + ": " + score.newScore;
         const topHighScores = document.querySelector("#top_high_scores");
