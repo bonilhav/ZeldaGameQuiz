@@ -1,3 +1,3 @@
-This is a multiple choice quiz game. The topic of the quiz will be Zelda. The quiz will be timed. With each correct response the individual’s timer will coninue without any change. If an individual answers incorrectly the timer will have seconds deducted. Individuals will be able to keep track of their score and other scores associated with the game. 
+This is a multiple choice quiz game. The topic of the quiz will be Zelda games. The time limit for the quiz will be 30 seconds. With each correct response the individual’s timer will continue without any penalty. If an individual answers incorrectly the timer will have 5 seconds deducted. Individuals will be able to keep track of their score and other scores associated with the game. 
 
 <img src="./assets/screenshot_quizgame.png">

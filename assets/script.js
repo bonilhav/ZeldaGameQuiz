@@ -11,6 +11,7 @@ start_btn.onclick = ()=>{
     timeCount.textContent = time;
     startTimer();
     next_btn.click();
+    high_score.style.display = "none";
 };
 
 let time = 30;
