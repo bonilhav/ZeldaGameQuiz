@@ -286,3 +286,19 @@ footer .next_btn {
     flex-direction: column;
     justify-content: space-between;
 }
+
+footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    width: 100%;
+    background: var(--gldyellow);
+    color: var(--dkblue);
+    line-height: 10px;
+}
+
+footer a {
+    color: var(--dkblue);
+    text-decoration: none;
+    font-weight: 700;
+}
