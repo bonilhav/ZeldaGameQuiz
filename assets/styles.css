@@ -70,7 +70,8 @@ nav {
 }
 
 .quiz_box {
-    width: 550px;
+    width: 650px;
+    height: auto;
     background: var(--wtsmoke);
     border-radius: 8px;
     opacity: 0;
@@ -126,7 +127,7 @@ nav {
     user-select: none;
 }
 
-.quiz_box section {
+.selectques {
     padding: 25px 30ox 20px 30px;
     background: rgb(78, 175, 107);
 }
@@ -179,13 +180,15 @@ section .option_list .option:hover{
     margin-bottom: 0px;
 }
 
-.quiz_box footer{
-    height: 60px;
+#quizFooter {
+    background-color: var(--gldyellow);
+    position:absolute;
+    width: 610px;
     padding: 0 20px;
     background: var(--gldyellow);
     border-radius: 0 0 8px 8px;
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
 }
 
 .next_btn,
@@ -195,6 +198,7 @@ section .option_list .option:hover{
     color: var(--dkblue);
     background: var(--wtsmoke);
     border: none;
+    margin: 18px;
     padding: 10px 20px;
     outline: none;
     text-decoration: none;
@@ -289,9 +293,10 @@ footer .next_btn {
 
 footer {
     position: absolute;
+    margin-left: 90px;
     text-align: center;
     bottom: 0px;
-    width: 100%;
+    width: 90%;
     background: var(--gldyellow);
     color: var(--dkblue);
     line-height: 10px;
